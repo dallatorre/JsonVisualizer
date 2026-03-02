@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.vscode/
+*.log
+*.tmp
+*.user
+*.suo
+*.cache
+coverage/
+offline-vsto/
