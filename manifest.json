@@ -4,30 +4,30 @@
     "version": "1.0.0",
     "id": "649e1cb1-5bb1-4d32-b9dc-574bc8ba268c",
     "localizationInfo": {
-        "defaultLanguageTag": "en-us",
+        "defaultLanguageTag": "it-it",
         "additionalLanguages": []
     },
     "developer": {
-        "name": "Contoso",
-        "websiteUrl": "https://www.contoso.com",
-        "privacyUrl": "https://www.contoso.com/privacy",
-        "termsOfUseUrl": "https://www.contoso.com/servicesagreement"
+        "name": "JsonVisualizer",
+        "websiteUrl": "https://dallatorre.github.io/JsonVisualizer/",
+        "privacyUrl": "https://github.com/dallatorre/JsonVisualizer",
+        "termsOfUseUrl": "https://github.com/dallatorre/JsonVisualizer"
     },
     "name": {
         "short": "JsonVisualizer",
-        "full": "Contoso Task Pane Add-in"
+        "full": "Json Visualizer for Outlook"
     },
     "description": {
-        "short": "A template to get started.",
-        "full": "This is the template to get started."
+        "short": "Visualizza allegati JSON in Outlook.",
+        "full": "Apre e formatta allegati JSON dei messaggi Outlook in un task pane dedicato, con visualizzazione leggibile e ricerca rapida."
     },
     "icons": {
-        "outline": "assets/logo-filled.png",
-        "color": "assets/logo-filled.png"
+        "outline": "https://dallatorre.github.io/JsonVisualizer/assets/logo-filled.png",
+        "color": "https://dallatorre.github.io/JsonVisualizer/assets/logo-filled.png"
     },
     "accentColor": "#230201",
     "validDomains": [
-        "contoso.com"
+        "dallatorre.github.io"
     ],
     "authorization": {
         "permissions": {
@@ -65,7 +65,7 @@
                     "id": "TaskPaneRuntime",
                     "type": "general",
                     "code": {
-                        "page": "https://localhost:3000/taskpane.html"
+                        "page": "https://dallatorre.github.io/JsonVisualizer/taskpane.html"
                     },
                     "lifetime": "short",
                     "actions": [
@@ -77,89 +77,34 @@
                         }
                     ]
                 },
-                    {
-                        "id": "TaskPaneRuntimeOpenAttachment",
-                        "type": "general",
-                        "code": {
-                            "page": "https://localhost:3000/taskpane.html?openFirstAttachment=true"
-                        },
-                        "lifetime": "short",
-                        "actions": [
-                            {
-                                "id": "TaskPaneRuntimeOpenAttachmentShow",
-                                "type": "openPage",
-                                "pinnable": false,
-                                "view": "dashboard"
-                            }
-                        ]
+                {
+                    "id": "TaskPaneRuntimeOpenAttachment",
+                    "type": "general",
+                    "code": {
+                        "page": "https://dallatorre.github.io/JsonVisualizer/taskpane.html?openFirstAttachment=true"
                     },
+                    "lifetime": "short",
+                    "actions": [
+                        {
+                            "id": "TaskPaneRuntimeOpenAttachmentShow",
+                            "type": "openPage",
+                            "pinnable": false,
+                            "view": "dashboard"
+                        }
+                    ]
+                },
                 {
                     "id": "CommandsRuntime",
                     "type": "general",
                     "code": {
-                        "page": "https://localhost:3000/commands.html",
-                        "script": "https://localhost:3000/commands.js"
+                        "page": "https://dallatorre.github.io/JsonVisualizer/commands.html",
+                        "script": "https://dallatorre.github.io/JsonVisualizer/commands.js"
                     },
                     "lifetime": "short",
                     "actions": [
                         {
                             "id": "action",
                             "type": "executeFunction"
-                        }
-                    ]
-                }
-            ],
-            "ribbons": [
-                {
-                    "contexts": [
-                        "mailRead",
-                        "mailCompose"
-                    ],
-                    "tabs": [
-                        {
-                            "builtInTabId": "TabDefault",
-                            "groups": [
-                                {
-                                    "id": "msgReadGroup",
-                                    "label": "Contoso Add-in",
-                                    "icons": [
-                                        {
-                                            "size": 16,
-                                            "url": "https://localhost:3000/assets/logo-filled.png"
-                                        },
-                                        {
-                                            "size": 32,
-                                            "url": "https://localhost:3000/assets/logo-filled.png"
-                                        },
-                                        {
-                                            "size": 80,
-                                            "url": "https://localhost:3000/assets/logo-filled.png"
-                                        }
-                                    ],
-                                    "controls": [
-                                        {
-                                            "id": "msgReadOpenJsonAttachment",
-                                            "type": "button",
-                                            "label": "Apri JSON",
-                                            "icons": [
-                                                {
-                                                    "size": 16,
-                                                    "url": "https://localhost:3000/assets/logo-filled.png"
-                                                },
-                                                {
-                                                    "size": 32,
-                                                    "url": "https://localhost:3000/assets/logo-filled.png"
-                                                }
-                                            ],
-                                            "supertip": {
-                                                "title": "Apri allegato JSON",
-                                                "description": "Apri automaticamente il primo allegato .json nel Task Pane"
-                                            },
-                                            "actionId": "TaskPaneRuntimeOpenAttachmentShow"
-                                        }
-                                    ]
-                                }
-                            ]
                         }
                     ]
                 }
